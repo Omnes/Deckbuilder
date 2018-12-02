@@ -1,0 +1,23 @@
+﻿Kan jag göra det agnostiskt för vilket spel det är?
+
+
+
+User stories
+
+The user can add a card to the workspace by entering its name
+The user can add tags to a card in the workspace
+The user can add a card from the workspace to a deck
+The user can remove cards from the deck
+The user can view cards in the workspace and the deck
+The user can save the workspace and deck
+The user can view stats about the current deck
+The user can import a decklist
+The user can bulk add cards to the workspace
+
+The progam should limit usage of data from external sources
+
+Future:
+The user can export the decklist
+The user can view prices of the cards
+The user can mark cards as owned
+
