@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Deckbuilder.Models;
+using Deckbuilder.Logic.Models;
 
 namespace Deckbuilder.Interfaces
 {
@@ -9,10 +9,8 @@ namespace Deckbuilder.Interfaces
     {
         void CreateWorkspace();
 
-        void AddWorkspaceCard(WorkspaceCard workspaceCard);
-
-        void AddTag(WorkspaceCard workspaceCard, Tag tag);
-
         Workspace GetWorkSpace();
+
+        void SaveWorkspace();
     }
 }

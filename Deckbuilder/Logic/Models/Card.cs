@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Deckbuilder.Models
+namespace Deckbuilder.Logic.Models
 {
     /*public enum CardType
     {
@@ -16,11 +16,17 @@ namespace Deckbuilder.Models
 
     public class Card
     {
-        public string Name { get; set; }
-        //public int Id { get; set; }
+        public string Name { get; }
+        public Id<Card> Id { get; set; }
 
         //public CardType CardType { get; set; }
         //public int Power { get; set; }
         //public int Toughness { get; set; }
+
+        public Card(Id<Card> id, string name)
+        {
+            Name = name;
+            Id = id;
+        }
     }
 }

@@ -9,18 +9,8 @@ namespace Deckbuilder
     {
         static void Main(string[] args)
         {
-
-            var storage = new InMemoryStorage();
-            storage.CreateWorkspace();
-
-            var logic = new Logic
-            {
-                CardSource = new ParrotCardSource(),
-                Storage = storage
-            };
-
             var ui = new ConsoleUI();
-            ui.Run(logic);
+            ui.Run(new InMemoryStorage(), new ParrotCardSource());
         }
     }
 }

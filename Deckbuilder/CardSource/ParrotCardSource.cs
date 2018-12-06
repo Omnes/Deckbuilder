@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using Deckbuilder.Interfaces;
-using Deckbuilder.Models;
+using Deckbuilder.Logic.Models;
 
 namespace Deckbuilder.CardSource
 {
@@ -10,7 +10,9 @@ namespace Deckbuilder.CardSource
     {
         public Card GetCard(string cardName)
         {
-            return new Card { Name = cardName };
+            Random rnd = new Random();
+            var temporaryRandomIdUntilIFindWhereToAcuallyPutTheseCards = new Id<Card>(rnd.Next(1, int.MaxValue));
+            return new Card (temporaryRandomIdUntilIFindWhereToAcuallyPutTheseCards, cardName );
         }
     }
 }
