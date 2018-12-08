@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Deckbuilder.Interfaces;
+using Deckbuilder.Logic.Interfaces;
 using Deckbuilder.Logic.Models;
+using Deckbuilder.Common;
 
 namespace Deckbuilder.CardSource
 {

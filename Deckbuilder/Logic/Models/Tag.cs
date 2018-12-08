@@ -1,4 +1,6 @@
-﻿namespace Deckbuilder.Logic.Models
+﻿using Deckbuilder.Common;
+
+namespace Deckbuilder.Logic.Models
 {
     public class Tag
     {

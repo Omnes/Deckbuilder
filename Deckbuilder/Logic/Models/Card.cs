@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Deckbuilder.Common;
 
 namespace Deckbuilder.Logic.Models
 {
@@ -17,7 +18,7 @@ namespace Deckbuilder.Logic.Models
     public class Card
     {
         public string Name { get; }
-        public Id<Card> Id { get; set; }
+        public Id<Card> Id { get; }
 
         //public CardType CardType { get; set; }
         //public int Power { get; set; }

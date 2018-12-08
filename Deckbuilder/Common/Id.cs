@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Deckbuilder.Logic.Models
+namespace Deckbuilder.Common
 {
     public class Id<T>
     {
@@ -25,7 +25,7 @@ namespace Deckbuilder.Logic.Models
 
         public override bool Equals(object obj)
         {
-            return obj is Logic.Models.Id<T> id && Value == id.Value;
+            return obj is Id<T> id && Value == id.Value;
         }
 
         public override int GetHashCode()
