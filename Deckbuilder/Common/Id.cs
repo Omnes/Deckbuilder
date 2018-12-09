@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Linq;
 
 namespace Deckbuilder.Common
 {
@@ -32,5 +32,14 @@ namespace Deckbuilder.Common
         {
             return HashCode.Combine(Value);
         }
+
+#pragma warning disable CS0693 // Type parameter has the same name as the type parameter from outer type
+        public static Id<T> GetNextId<T>(IEnumerable<T> collection) where T : IEntity<T>
+        {
+            if (collection.Any())
+                return new Id<T>(collection.Select(e => e.Id.Value).Max() + 1);
+            return new Id<T>(0);
+        }
+#pragma warning restore CS0693 // Type parameter has the same name as the type parameter from outer type
     }
 }

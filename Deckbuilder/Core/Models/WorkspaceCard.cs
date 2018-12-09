@@ -1,12 +1,11 @@
-﻿using Deckbuilder.Logic.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 using Deckbuilder.Common;
 
 namespace Deckbuilder.Logic.Models
 {
-    public class WorkspaceCard
+    public class WorkspaceCard : IEntity<WorkspaceCard>
     {
         public Id<Card> CardId { get; }
         public List<Id<Tag>> TagIds { get; set; }

@@ -8,21 +8,21 @@ namespace Deckbuilder.Storage
 {
     public class InMemoryStorage : IStorage
     {
-        private Workspace workspace {get; set;}
+        private Workspace _workspace;
 
         public void CreateWorkspace()
         {
-            workspace = new Workspace();
+            _workspace = new Workspace();
         }
 
         public Workspace GetWorkSpace()
         {
-            return workspace;
+            return _workspace;
         }
 
-        public void SaveWorkspace()
+        public void SaveWorkspace(Workspace workspace)
         {
-            
+            _workspace = workspace;
         }
     }
 }

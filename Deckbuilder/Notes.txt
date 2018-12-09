@@ -1,4 +1,16 @@
-﻿Kan jag göra det agnostiskt för vilket spel det är?
+﻿
+oniony architecture
+Layers:
+Deckbuilder
+	Generic deckbuilding logic, should not know what cardgame it is
+Magic
+	mtg specific logic
+	implements its cardsource
+	CardSource
+		api fetcher
+		cardcache
+	Statistics
+	Playformats?
 
 
 
@@ -11,13 +23,16 @@ The user can remove cards from the deck
 The user can view cards in the workspace and the deck
 The user can save the workspace and deck
 The user can view stats about the current deck
+	manacurve, average cmc, cards with each tag
 The user can import a decklist
 The user can bulk add cards to the workspace
 
 The progam should limit usage of data from external sources
 
 Future:
+The user can create subtags
 The user can export the decklist
 The user can view prices of the cards
 The user can mark cards as owned
+The user can get a list of cards that is missing from its collection for a deck
 

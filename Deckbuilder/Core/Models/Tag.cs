@@ -2,7 +2,7 @@
 
 namespace Deckbuilder.Logic.Models
 {
-    public class Tag
+    public class Tag : IEntity<Tag>
     {
         public string Name { get; }
         public Id<Tag> Id { get; }

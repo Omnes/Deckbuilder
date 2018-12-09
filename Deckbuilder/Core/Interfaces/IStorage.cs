@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Deckbuilder.Logic.Models;
+﻿using Deckbuilder.Logic.Models;
 
 namespace Deckbuilder.Logic.Interfaces
 {
@@ -11,6 +8,6 @@ namespace Deckbuilder.Logic.Interfaces
 
         Workspace GetWorkSpace();
 
-        void SaveWorkspace();
+        void SaveWorkspace(Workspace workspace);
     }
 }
