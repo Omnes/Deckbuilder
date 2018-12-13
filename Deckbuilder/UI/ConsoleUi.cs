@@ -30,7 +30,7 @@ namespace Deckbuilder.UI
             {
                 //var tagString = workspaceCard.Tags.Select(t => t.Name).Aggregate(string.Empty, (current, next) => $"{current}, {next}");
                 //Console.WriteLine($"{workspaceCard.Card.Name} : {tagString}");
-                Console.WriteLine($"{workspaceCard.Id.Value}");
+                Console.WriteLine($"{workspaceCard.CardName} - {workspaceCard.TagNames}");
             }
 
             Console.WriteLine("Deck: ");
@@ -58,7 +58,7 @@ namespace Deckbuilder.UI
                     break;
                 case "createTag":
                     {
-                        var tagName = splitInput[2];
+                        var tagName = splitInput[1];
                         _uiAdapter.CreateTag(tagName);
                     }
                     break;

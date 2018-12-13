@@ -31,5 +31,10 @@ namespace Deckbuilder.CardSource
                 return card;
             }
         }
+
+        public Card GetCardById(Id<Card> cardId)
+        {
+            return _cards.Find(c => c.Id == cardId);
+        }
     }
 }

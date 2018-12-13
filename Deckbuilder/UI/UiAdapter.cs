@@ -3,9 +3,16 @@ using System.Collections.Generic;
 using System.Text;
 using Deckbuilder.Logic.Interfaces;
 using Deckbuilder.Logic.Models;
+using System.Linq;
 
 namespace Deckbuilder.UI
 {
+    public class UiWorkspaceCard
+    {
+        public string CardName { get; set; }
+        public string TagNames { get; set; }
+    }
+
     /// <summary>
     /// Should contain all logic the ui needs to interact with the inner layers
     /// </summary>
@@ -56,10 +63,21 @@ namespace Deckbuilder.UI
             workspace.AddTag(workspaceCard, tag);
         }
 
-        public List<WorkspaceCard> GetWorkspaceCards()
+        private UiWorkspaceCard Convert(WorkspaceCard workspaceCard)
         {
             var workspace = _storage.GetWorkSpace();
-            return workspace.WorkspaceCards;
+            var tags = workspaceCard.TagIds.Select(tId => workspace.Tags.Find(t => t.Id == tId).Name);
+            return new UiWorkspaceCard
+            {
+                CardName = _cardSource.GetCardById(workspaceCard.CardId).Name,
+                TagNames = string.Join(", ", tags.ToArray())
+            };
+        }
+
+        public List<UiWorkspaceCard> GetWorkspaceCards()
+        {
+            var workspace = _storage.GetWorkSpace();
+            return workspace.WorkspaceCards.Select(Convert).ToList();
         }
 
         public List<DeckCard> GetDeckCards()

@@ -36,7 +36,7 @@ namespace Deckbuilder.Logic.Models
 
         public void AddTag(WorkspaceCard workspaceCard, Tag tag)
         {
-            throw new NotImplementedException();
+            workspaceCard.TagIds.Add(tag.Id);
         }
 
         public void AddToDeck(WorkspaceCard workspaceCard)
