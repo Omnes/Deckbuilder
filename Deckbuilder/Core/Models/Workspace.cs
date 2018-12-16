@@ -24,7 +24,10 @@ namespace Deckbuilder.Logic.Models
         {
             var nextId = Id<WorkspaceCard>.GetNextId(WorkspaceCards);
             var workspaceCard = new WorkspaceCard(nextId, card);
-            WorkspaceCards.Add(workspaceCard);
+            if (!WorkspaceCards.Any(wc => wc.CardId == card.Id))
+            {
+                WorkspaceCards.Add(workspaceCard);
+            }
         }
 
         public void CreateTag(string tagName)
@@ -36,14 +39,27 @@ namespace Deckbuilder.Logic.Models
 
         public void AddTag(WorkspaceCard workspaceCard, Tag tag)
         {
-            workspaceCard.TagIds.Add(tag.Id);
+            if(!workspaceCard.TagIds.Any(tId => tId == tag.Id))
+            {
+                workspaceCard.TagIds.Add(tag.Id);
+            }
+            //Throw exception
         }
 
         public void AddToDeck(WorkspaceCard workspaceCard)
         {
-            throw new NotImplementedException();
+            if(!DeckCards.Any(dc => dc.WorkspaceCardId == workspaceCard.Id))
+            {
+                var nextId = Id<DeckCard>.GetNextId(DeckCards);
+                var deckCard = new DeckCard(nextId, workspaceCard.Id, 1);
+                DeckCards.Add(deckCard);
+            }
+            else
+            {
+                var deckCard = DeckCards.Find(dc => dc.WorkspaceCardId == workspaceCard.Id);
+                //deckCard.Quantity++;
+            }
+            
         }
-
-
     }
 }

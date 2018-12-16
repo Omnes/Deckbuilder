@@ -45,7 +45,7 @@ namespace Deckbuilder.UI
             var splitInput = input.Split(" ");
             var command = splitInput[0];
 
-            switch (command)
+            switch (command.ToLower())
             {
                 case "add":
                     {
@@ -56,13 +56,13 @@ namespace Deckbuilder.UI
                 case "view":
                     PrintWorkspace();
                     break;
-                case "createTag":
+                case "createtag":
                     {
                         var tagName = splitInput[1];
                         _uiAdapter.CreateTag(tagName);
                     }
                     break;
-                case "addTag":
+                case "addtag":
                     {
                         var cardName = splitInput[1];
                         var tagName = splitInput[2];
@@ -70,7 +70,7 @@ namespace Deckbuilder.UI
                         _uiAdapter.AddTag(cardName, tagName);
                     }
                     break;
-                case "addToDeck":
+                case "addtodeck":
                     {
                         var cardName = splitInput[1];
                         _uiAdapter.AddCardToDeck(cardName);
