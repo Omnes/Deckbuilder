@@ -6,30 +6,29 @@ using System.Collections.Generic;
 using System.Text;
 using System.IO;
 using Newtonsoft.Json;
+using System.Linq;
 
 namespace Deckbuilder.CardSource.Magic
 {
     public class ScryfallFileCardFetcher : ICardFetcher
     {
-        private ScryfallJsonCard[] _rawScryfallCards;
-        private List<Card> _parsedCards;
+        private List<ScryfallJsonCard> _rawScryfallCards;
 
         public ScryfallFileCardFetcher(string jsonFile)
         {
-            _parsedCards = new List<Card>();
             var jsonString = File.ReadAllText(jsonFile);
             var jsonCards = JsonConvert.DeserializeObject<ScryfallJsonCard[]>(jsonString);
-            _rawScryfallCards = jsonCards;
+            _rawScryfallCards = jsonCards.ToList();
         }
 
         public Card FetchCard(string cardName)
         {
-            throw new NotImplementedException();
+            return ToCard(_rawScryfallCards.Find(rsc => rsc.Name == cardName));
         }
 
         private Card ToCard(ScryfallJsonCard sjCard)
         {
-            throw new NotImplementedException();
+            return new Card(new CardId(sjCard.Id), sjCard.Name);
         }
     }
 }

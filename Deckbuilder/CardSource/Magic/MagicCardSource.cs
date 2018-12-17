@@ -16,7 +16,7 @@ namespace Deckbuilder.CardSource.Magic
     {
         bool HasCard(string cardName);
         Card GetCard(string cardName);
-        Card GetCardById(Id<Card> card);
+        Card GetCardById(CardId cardId);
         void AddCard(Card card);
     }
 
@@ -27,7 +27,7 @@ namespace Deckbuilder.CardSource.Magic
 
         public MagicCardSource()
         {
-            _cardFetcher = new ScryfallFileCardFetcher("scryfall-default-cards.json");
+            _cardFetcher = new ScryfallFileCardFetcher("../../../scryfall-default-cards.json");
             _cardStorage = new InMemoryMagicCardStorage();
         }
 
@@ -45,7 +45,7 @@ namespace Deckbuilder.CardSource.Magic
             }
         }
 
-        public Card GetCardById(Id<Card> cardId)
+        public Card GetCardById(CardId cardId)
         {
             return _cardStorage.GetCardById(cardId);
         }

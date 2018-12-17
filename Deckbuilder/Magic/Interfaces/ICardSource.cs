@@ -9,6 +9,6 @@ namespace Deckbuilder.Logic.Interfaces
     public interface ICardSource
     {
         Card GetCard(string cardName);
-        Card GetCardById(Id<Card> cardId);
+        Card GetCardById(CardId cardId);
     }
 }

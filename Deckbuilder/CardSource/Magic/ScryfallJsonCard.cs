@@ -125,8 +125,7 @@ namespace Deckbuilder.CardSource.Magic
         public string BorderColor { get; set; }
 
         [JsonProperty("frame")]
-        [JsonConverter(typeof(ParseStringConverter))]
-        public long Frame { get; set; }
+        public string Frame { get; set; }
 
         [JsonProperty("frame_effect")]
         public string FrameEffect { get; set; }
@@ -165,19 +164,16 @@ namespace Deckbuilder.CardSource.Magic
         public long? EdhrecRank { get; set; }
 
         [JsonProperty("power", NullValueHandling = NullValueHandling.Ignore)]
-        [JsonConverter(typeof(ParseStringConverter))]
-        public long? Power { get; set; }
+        public string Power { get; set; }
 
         [JsonProperty("toughness", NullValueHandling = NullValueHandling.Ignore)]
-        [JsonConverter(typeof(ParseStringConverter))]
-        public long? Toughness { get; set; }
+        public string Toughness { get; set; }
 
         [JsonProperty("flavor_text", NullValueHandling = NullValueHandling.Ignore)]
         public string FlavorText { get; set; }
 
         [JsonProperty("loyalty", NullValueHandling = NullValueHandling.Ignore)]
-        [JsonConverter(typeof(ParseStringConverter))]
-        public long? Loyalty { get; set; }
+        public string Loyalty { get; set; }
 
         [JsonProperty("all_parts", NullValueHandling = NullValueHandling.Ignore)]
         public AllPart[] AllParts { get; set; }

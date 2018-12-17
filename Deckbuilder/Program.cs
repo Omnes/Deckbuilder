@@ -1,5 +1,6 @@
 ﻿using System;
 using Deckbuilder.CardSource;
+using Deckbuilder.CardSource.Magic;
 using Deckbuilder.Storage;
 using Deckbuilder.UI;
 
@@ -10,7 +11,7 @@ namespace Deckbuilder
         static void Main(string[] args)
         {
             var ui = new ConsoleUI();
-            ui.Run(new InMemoryStorage(), new ParrotCardSource());
+            ui.Run(new InMemoryStorage(), new MagicCardSource());
         }
     }
 }

@@ -3,29 +3,37 @@ using System.Collections.Generic;
 using System.Text;
 using Deckbuilder.Common;
 using Deckbuilder.Logic.Models;
+using System.Linq;
 
 namespace Deckbuilder.CardSource.Magic
 {
     public class InMemoryMagicCardStorage : ICardStorage
     {
+        private List<Card> _cards; 
+
+        public InMemoryMagicCardStorage()
+        {
+            _cards = new List<Card>();
+        }
+
         public void AddCard(Card card)
         {
-            throw new NotImplementedException();
+            _cards.Add(card);
         }
 
         public Card GetCard(string cardName)
         {
-            throw new NotImplementedException();
+            return _cards.Find(c => c.Name == cardName);
         }
 
-        public Card GetCardById(Id<Card> card)
+        public Card GetCardById(CardId cardId)
         {
-            throw new NotImplementedException();
+            return _cards.Find(c => c.Id == cardId);
         }
 
         public bool HasCard(string cardName)
         {
-            throw new NotImplementedException();
+            return _cards.Any(c => c.Name == cardName);
         }
     }
 }

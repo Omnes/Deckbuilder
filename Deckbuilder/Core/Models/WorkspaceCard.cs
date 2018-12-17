@@ -7,7 +7,7 @@ namespace Deckbuilder.Logic.Models
 {
     public class WorkspaceCard : IEntity<WorkspaceCard>
     {
-        public Id<Card> CardId { get; }
+        public CardId CardId { get; }
         public List<Id<Tag>> TagIds { get; set; }
         public Id<WorkspaceCard> Id { get; set; }
 

@@ -25,14 +25,14 @@ namespace Deckbuilder.CardSource
             }
             else
             {
-                var id = Id<Card>.GetNextId(_cards);
-                var card = new Card(id, cardName);
+                var id = Guid.NewGuid();
+                var card = new Card(new CardId(id), cardName);
                 _cards.Add(card);
                 return card;
             }
         }
 
-        public Card GetCardById(Id<Card> cardId)
+        public Card GetCardById(CardId cardId)
         {
             return _cards.Find(c => c.Id == cardId);
         }
